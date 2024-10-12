@@ -5,16 +5,13 @@
 
 int main(int argc, char** argv)
 {
-  char src[50] = "GeeksForGeeks is for programming geeks.";
-	char dest[50];
+	char *str = "2147483648";
 
-	strncpy(dest, src, 60);
+	int res = atoi(str);
+	printf("res: %d\n", res);
 
-	printf("dest: %s\nsrc: %s\n", dest, src);
-
-	dest[13] = 'F';
-
-	printf("dest: %s\nsrc: %s", dest, src);
+	int res_ft = ft_atoi(str);
+	printf("res_ft: %d\n", res_ft);
 
 	return 0;
 }
