@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yusufozel <yusufozel@student.42.fr>        +#+  +:+       +#+        */
+/*   By: yozel <yozel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 14:20:59 by yusufozel         #+#    #+#             */
-/*   Updated: 2024/10/12 14:31:36 by yusufozel        ###   ########.fr       */
+/*   Updated: 2024/10/17 17:46:41 by yozel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,5 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 			return (((unsigned char)s1[i] - (unsigned char)s2[i]));
 		i++;
 	}
-
 	return (0);
 }
