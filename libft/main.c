@@ -5,13 +5,8 @@
 
 int main(int argc, char** argv)
 {
-	char *str = "2147483648";
-
-	int res = atoi(str);
-	printf("res: %d\n", res);
-
-	int res_ft = ft_atoi(str);
-	printf("res_ft: %d\n", res_ft);
-
+	char *s1 = "aaloremaa";
+	char *s2 = ft_strtrim(s1, "a");
+	printf("%s|\n", s2);
 	return 0;
 }
