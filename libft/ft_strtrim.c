@@ -3,31 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yozel <yozel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yusufozel <yusufozel@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 12:10:45 by yozel             #+#    #+#             */
-/*   Updated: 2024/10/20 12:31:02 by yozel            ###   ########.fr       */
+/*   Updated: 2024/11/10 10:32:06 by yusufozel        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-char	*ft_strtrim(char const *s1, char const *set)
+static int	is_in_set(char c, const char *set)
 {
-	size_t	i;
-	size_t	l;
-	size_t	set_len;
-	char*	new;
+	while (*set)
+	{
+		if (c == *set)
+			return (1);
+		set++;
+	}
+	return (0);
+}
 
+char	*ft_strtrim(const char *s1, const char *set)
+{
+	size_t	start;
+	size_t	end;
+	char	*trimmed;
+	size_t	i;
+
+	if (!s1 || !set)
+		return (NULL);
+	start = 0;
+	while (s1[start] && is_in_set(s1[start], set))
+		start++;
+	end = 0;
+	while (s1[end])
+		end++;
+	while (end > start && is_in_set(s1[end - 1], set))
+		end--;
+	trimmed = (char *)malloc(sizeof(char) * (end - start + 1));
+	if (!trimmed)
+		return (NULL);
 	i = 0;
-	l = ft_strlen(s1) - 1;
-	set_len = ft_strlen(set);
-	while (ft_strncmp(s1 + set_len, set, set_len))
-		i += set_len;
-	while (ft_strncmp(s1 - set_len, set, set_len))
-		l -= set_len;
-	
-	new = malloc(l - i + 1);
-	ft_strlcpy(new, ((char *)s1) + i, l - i + 1);
-	return new;
+	while (start < end)
+		trimmed[i++] = s1[start++];
+	trimmed[i] = '\0';
+	return (trimmed);
 }

@@ -3,17 +3,13 @@
 #include <string.h>
 #include "libft.h"
 
+void	func(unsigned int i, char* c)
+{
+	*c = 'A';
+}
+
 int main(int argc, char** argv)
 {
-<<<<<<< Updated upstream
-	char *s1 = "aaloremaa";
-	char *s2 = ft_strtrim(s1, "a");
-	printf("%s|\n", s2);
-=======
-	char c = 126;
-	printf("%d\n", isprint(c));
-	printf("%d\n", ft_isprint(c));
-
->>>>>>> Stashed changes
+	ft_putchar_fd('A', 1);
 	return 0;
 }
